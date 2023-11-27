@@ -1,25 +1,30 @@
 // script.js
-const pages = [
-    // Existing page data...
-];
-
-function createPageCard(page) {
-    // Existing function...
-}
-
-function populateGallery() {
-    // Existing function...
-}
-
 function addPhoto() {
-    // Existing function...
+    const titleInput = document.getElementById('title');
+    const imageUrlInput = document.getElementById('image-url');
+    const descriptionInput = document.getElementById('description');
 
-    // New: Update the GitHub Pages file (hh.html) using GitHub API
-    const accessToken = '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';
+    const newPhoto = {
+        title: titleInput.value,
+        image: imageUrlInput.value,
+        description: descriptionInput.value,
+    };
+
+    // Add the new photo to the pages array
+    pages.push(newPhoto);
+
+    // Clear the form inputs
+    titleInput.value = '';
+    imageUrlInput.value = '';
+    descriptionInput.value = '';
+
+    // Update the hh.html file on GitHub
+    const accessToken = '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';
     const repoOwner = 'nezzkenya';
-    const repoName = 'nezzkenya.github.io';
+    const repoName = 'main'; // Updated repository name to 'main'
     const filePath = 'hh.html';
 
+    // Fetch the current content of hh.html
     fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
         method: 'GET',
         headers: {
@@ -48,7 +53,3 @@ function addPhoto() {
         .catch(error => console.error('Error adding photo:', error));
     });
 }
-
-window.onload = populateGallery;
-
-

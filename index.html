@@ -1,0 +1,34 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Add New Photo Form -->
+    <div id="add-photo-form">
+        <h2>Add New Photo</h2>
+        <form id="photo-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="image-url">Image URL:</label>
+            <input type="url" id="image-url" name="image-url" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea><br>
+
+            <button type="button" onclick="addPhoto()">Add Photo</button>
+        </form>
+    </div>
+
+    <!-- Gallery Container -->
+    <div id="gallery-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
